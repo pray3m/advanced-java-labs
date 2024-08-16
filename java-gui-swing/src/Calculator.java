@@ -24,10 +24,11 @@ public class Calculator {
                 "1", "2", "3", "-",
                 "C", "0", "=", "+"
         };
-        
+
+        ButtonClickListener listener = new ButtonClickListener(display);
         for (String text : buttons) {
             JButton button = new JButton(text);
-            button.addActionListener(new ButtonClickListener(display));
+            button.addActionListener(listener);
             panel.add(button);
         }
 
