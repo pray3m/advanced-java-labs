@@ -1,2 +1,5 @@
-package com.codewithprem.dao;public class UserDAO {
+package com.codewithprem.dao;
+
+public class UserDAO {
+    
 }
