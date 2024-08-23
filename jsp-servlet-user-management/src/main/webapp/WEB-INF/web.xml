@@ -23,4 +23,17 @@
         <param-name>jdbc.driver</param-name>
         <param-value>org.postgresql.Driver</param-value>
     </context-param>
+
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.codewithprem.UserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/createUser</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

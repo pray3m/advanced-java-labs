@@ -2,12 +2,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>User Management</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<center>
+    <h1> User Management
+    </h1>
+    <a href="create_user.jsp">Add a new user </a>
+
+
+    <div>
+        <h2>
+            List of Users
+        </h2>
+        <table>
+            
+        </table>
+    </div>
+
+
+</center>
 </body>
 </html>
