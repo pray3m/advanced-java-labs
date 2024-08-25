@@ -31,11 +31,22 @@
             %>
 
             <tr>
-                <td><%= user.getId() %>
+                <td>
+                    <%= user.getId() %>
                 </td>
-                <td><%= user.getName() %>
+                <td>
+                    <%= user.getName() %>
                 </td>
-                <td><%= user.getEmail() %>
+                <td>
+                    <%= user.getEmail() %>
+                </td>
+                <td>
+                    <a href="">
+                        <button>Edit</button>
+                    </a>
+                    <a href="">
+                        <button>Delete</button>
+                    </a>
                 </td>
             </tr>
 

@@ -10,11 +10,14 @@
 <center>
     <h1> User Management
     </h1>
-    <a href="user-form.jsp">Add a new user </a>
 
-    <a href="user-list.jsp">List of users</a>
+    <h3>
+        <a href="${pageContext.request.contextPath}/new">Add a new user </a>
+    </h3>
 
-
+    <h3>
+        <a href="${pageContext.request.contextPath}/list">List of users</a>
+    </h3>
 </center>
 </body>
 </html>
