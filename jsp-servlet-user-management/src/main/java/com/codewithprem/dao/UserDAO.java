@@ -43,4 +43,19 @@ public class UserDAO {
         statement.setInt(1, id);
         statement.executeUpdate();
     }
+
+    public User getUserById(int id) throws SQLException {
+        User user = null;
+        String sql = "SELECT * FROM users WHERE id=?";
+        Connection conn = DbConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, id);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            String name = resultSet.getString("name");
+            String email = resultSet.getString("email");
+            user = new User(id, name, email);
+        }
+        return user;
+    }
 }

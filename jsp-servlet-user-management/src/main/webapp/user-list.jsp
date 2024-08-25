@@ -41,10 +41,10 @@
                     <%= user.getEmail() %>
                 </td>
                 <td>
-                    <a href="">
+                    <a href="edit?id=<%=user.getId()%>">
                         <button>Edit</button>
                     </a>
-                    <a href="${pageContext.request.contextPath}/delete?id=<%= user.getId() %>">
+                    <a href="delete?id=<%=user.getId()%>">
                         <button>Delete</button>
                     </a>
                 </td>

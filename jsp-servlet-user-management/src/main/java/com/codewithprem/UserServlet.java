@@ -46,6 +46,10 @@ public class UserServlet extends HttpServlet {
                     deleteUser(req, resp);
                     break;
 
+                case "/edit":
+                    showEditForm(req, resp);
+                    break;
+
                 default:
                     listUser(req, resp);
                     break;
@@ -59,9 +63,15 @@ public class UserServlet extends HttpServlet {
 
     private void showNewForm(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        System.out.println("show new form");
         RequestDispatcher dispatcher = req.getRequestDispatcher("user-form.jsp");
         dispatcher.forward(req, resp);
+    }
+
+    private void showEditForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        User user = userDAO.getUserById(id);
+        req.setAttribute("user", user);
+        req.getRequestDispatcher("edit-form.jsp").forward(req, resp);
     }
 
     private void insertUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
