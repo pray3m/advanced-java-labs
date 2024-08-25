@@ -10,7 +10,7 @@
         Create a new User
     </h1>
 
-    <form action="${pageContext.request.contextPath}/insert" method="post">
+    <form action="insert" method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <br/><br/>

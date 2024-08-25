@@ -16,10 +16,9 @@
         if (user != null) {
     %>
 
-    <form action="${pageContext.request.contextPath}/update" method="post">
-
+    <form action="update" method="post">
         <label for="id">Id:</label>
-        <input type="text" id="id" name="id" required disabled value="<%=user.getId()%>">
+        <input type="text" id="id" name="id" required readonly value="<%=user.getId()%>">
         <br/><br/>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<%= user.getName() %>" required>

@@ -36,6 +36,16 @@ public class UserDAO {
         return users;
     }
 
+    public void updateUser(int id, String name, String email) throws SQLException {
+        String sql = "UPDATE users SET name=?, email=? WHERE id=?";
+        Connection conn = DbConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, name);
+        statement.setString(2, email);
+        statement.setInt(3, id);
+        statement.executeUpdate();
+    }
+
     public void deleteUser(int id) throws SQLException {
         String sql = "DELETE FROM users WHERE id=?";
         Connection conn = DbConnection.getConnection();

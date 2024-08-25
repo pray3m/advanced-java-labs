@@ -27,12 +27,8 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("doGet method called");
-
         String action = req.getServletPath();
-
         try {
-
             switch (action) {
                 case "/new":
                     showNewForm(req, resp);
@@ -48,6 +44,10 @@ public class UserServlet extends HttpServlet {
 
                 case "/edit":
                     showEditForm(req, resp);
+                    break;
+
+                case "/update":
+                    updateUser(req, resp);
                     break;
 
                 default:
@@ -75,7 +75,6 @@ public class UserServlet extends HttpServlet {
     }
 
     private void insertUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
-        System.out.println("Insert user");
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         User newUser = new User(name, email);
@@ -84,8 +83,15 @@ public class UserServlet extends HttpServlet {
         resp.sendRedirect("list");
     }
 
+    private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String name = req.getParameter("name");
+        String email = req.getParameter("email");
+        userDAO.updateUser(id, name, email);
+        resp.sendRedirect("list");
+    }
+
     private void listUser(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException, SQLException {
-        System.out.println("List user");
         List<User> users = userDAO.getAllUsers();
         req.setAttribute("users", users);
         req.getRequestDispatcher("user-list.jsp").forward(req, resp);
