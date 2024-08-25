@@ -42,6 +42,10 @@ public class UserServlet extends HttpServlet {
                     insertUser(req, resp);
                     break;
 
+                case "/delete":
+                    deleteUser(req, resp);
+                    break;
+
                 default:
                     listUser(req, resp);
                     break;
@@ -75,5 +79,11 @@ public class UserServlet extends HttpServlet {
         List<User> users = userDAO.getAllUsers();
         req.setAttribute("users", users);
         req.getRequestDispatcher("user-list.jsp").forward(req, resp);
+    }
+
+    private void deleteUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        userDAO.deleteUser(id);
+        resp.sendRedirect("list");
     }
 }

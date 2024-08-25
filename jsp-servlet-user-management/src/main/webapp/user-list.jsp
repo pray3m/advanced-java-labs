@@ -10,7 +10,7 @@
 <center>
     <h1> User Management
     </h1>
-    <a href="user-form.jsp">Add a new user </a>
+    <a href="${pageContext.request.contextPath}/new">Add a new user </a>
 
     <div>
         <h2>
@@ -44,7 +44,7 @@
                     <a href="">
                         <button>Edit</button>
                     </a>
-                    <a href="">
+                    <a href="${pageContext.request.contextPath}/delete?id=<%= user.getId() %>">
                         <button>Delete</button>
                     </a>
                 </td>

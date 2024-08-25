@@ -35,4 +35,12 @@ public class UserDAO {
 
         return users;
     }
+
+    public void deleteUser(int id) throws SQLException {
+        String sql = "DELETE FROM users WHERE id=?";
+        Connection conn = DbConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, id);
+        statement.executeUpdate();
+    }
 }
